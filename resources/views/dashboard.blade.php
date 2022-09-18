@@ -1,80 +1,152 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel - ItSolutionStuff.com</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <style type="text/css">
-        @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@extends('layouts.admin')
 
-        body{
-            margin: 0;
-            font-size: .9rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: #212529;
-            text-align: left;
-            background-color: #f5f8fa;
-        }
-        .navbar-laravel
-        {
-            box-shadow: 0 2px 4px rgba(0,0,0,.04);
-        }
-        .navbar-brand , .nav-link, .my-form, .login-form
-        {
-            font-family: Raleway, sans-serif;
-        }
-        .my-form
-        {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-        .my-form .row
-        {
-            margin-left: 0;
-            margin-right: 0;
-        }
-        .login-form
-        {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-        .login-form .row
-        {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    </style>
-</head>
-<body>
+{{-- nav active satatus --}}
+@section('dashboard')
+    active
+@endsection
 
-<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-    <div class="container">
-        <a class="navbar-brand" href="#">Laravel</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+{{-- nav active satatus --}}
+@section('page_title')
+    Dasboard
+@endsection
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
-                    </li>
-                @endguest
-            </ul>
+@section('content')
 
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h6 class="card-title mb-2">Report</h6>
+                    <div class="dropdown">
+                        <a href="#" class="btn btn-floating" data-toggle="dropdown">
+                            <i class="ti-more-alt"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            <div>
+                                <h5>Stats</h5>
+                                <div>Last month targets</div>
+                            </div>
+                            <h3 class="text-success mb-0">$1,23M</h3>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            <div>
+                                <h5>Payments</h5>
+                                <div>Week's expenses</div>
+                            </div>
+                            <div>
+                                <h3 class="text-danger mb-0">- $58,90</h3>
+                            </div>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            <div>
+                                <h5>Orders</h5>
+                                <div>Total products ordered</div>
+                            </div>
+                            <div>
+                                <h3 class="text-info mb-0">65</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <a href="#" class="btn btn-info">Report Detail</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h6 class="card-title mb-2">Statistics</h6>
+                    <div class="dropdown">
+                        <a href="#" class="btn btn-floating" data-toggle="dropdown">
+                            <i class="ti-more-alt"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            <div>
+                                <h5>Reports</h5>
+                                <div>Monthly sales reports</div>
+                            </div>
+                            <h3 class="text-primary mb-0">421</h3>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            <div>
+                                <h5>User</h5>
+                                <div>Visitors last week</div>
+                            </div>
+                            <div>
+                                <h3 class="text-success mb-0">+10</h3>
+                            </div>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            <div>
+                                <h5>Sales</h5>
+                                <div>Total average weekly report</div>
+                            </div>
+                            <div>
+                                <h3 class="text-primary mb-0">140</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <a href="#" class="btn btn-warning">Statistics Detail</a>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <h6 class="card-title mb-2 text-center">Financial year</h6>
+                <p class="mb-0 text-muted">Expenses statistics to date</p>
+                <hr>
+                <div class="font-size-40 font-weight-bold">$502,680</div>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="text-muted mb-1">Current month</p>
+                        <div>
+                            <span class="font-weight-bold">$46,362</span>
+                            <span class="badge bg-danger-bright text-danger ml-1">-8%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted mb-1">Last year</p>
+                        <div>
+                            <span class="font-weight-bold">$34,546</span>
+                            <span class="badge bg-success-bright text-success ml-1">-13%</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="font-weight-bold">Monthly report</p>
+                <div id="ecommerce-activity-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-@yield('content')
 
-</body>
-</html>
+
+
+@endsection

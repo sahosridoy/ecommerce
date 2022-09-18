@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FallbackController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +30,16 @@ Route::post('registration', [AuthController::class, 'submitRegistration'])->name
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
-Route::get('dashboard', [AuthController::class, 'dashboard']);
+Route::get('dashboard', [AuthController::class, 'dashboard'])->name('home');
+
+
+Route::name('admin.')->prefix('admin/')->group(function() {
+
+    Route::resource('categories', CategoryController::class);
+    Route::resource('subcategories', SubcategoryController::class);
+    Route::resource('products', ProductController::class);
+
+});
+Route::fallback(FallbackController::class);
+
+
